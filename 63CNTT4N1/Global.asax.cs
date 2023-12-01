@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _63CNTT4N1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,12 +18,15 @@ namespace _63CNTT4N1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
-
         //Tao moi Session
         protected void Session_Start()
         {
+            //Luu Ma nguoi dang nhap quan ly
             Session["UserID"] = "1";
+            //Gio hang
+            Session["MyCart"] = "";//khoi tao gia tri = NULL
+            //Luu Thong tin dang nhap cua nguoi dung
+            Session["UserCustomer"] = "";
         }
-
     }
 }

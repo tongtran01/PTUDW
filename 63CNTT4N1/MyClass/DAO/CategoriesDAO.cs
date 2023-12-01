@@ -8,32 +8,38 @@ using MyClass.Model;
 
 namespace MyClass.DAO
 {
-    
     public class CategoriesDAO
     {
         private MyDBContext db = new MyDBContext();
-
-        //INDEX
         public List<Categories> getList()
         {
+
             return db.Categories.ToList();
         }
 
         /////////////////////////////////////////////////////////////////////////////////////
-        //Hien thi danh sach theo trang thai
+        public List<Categories> getListByPareantId(int parentid = 0)
+        {
+            return db.Categories
+                .Where(m => m.ParentId == parentid && m.Status == 1)
+                .OrderBy(m => m.Order)
+                .ToList();
+        }
+
+        //Hien thi danh sach toan bo Loai san pham: SELCT * FROM
         public List<Categories> getList(string status = "All")
         {
             List<Categories> list = null;
             switch (status)
             {
-                case "Index"://status == 1,2
+                case "Index":
                     {
                         list = db.Categories
                         .Where(m => m.Status != 0)
                         .ToList();
                         break;
                     }
-                case "Trash"://status == 0
+                case "Trash":
                     {
                         list = db.Categories
                         .Where(m => m.Status == 0)
@@ -64,6 +70,16 @@ namespace MyClass.DAO
         }
 
         /////////////////////////////////////////////////////////////////////////////////////
+        //Hien thi danh sach 1 mau tin (ban ghi) voi kieu string = slug
+        public Categories getRow(string slug)
+        {
+
+            return db.Categories
+                .Where(m => m.Slug == slug && m.Status == 1)
+                .FirstOrDefault();
+        }
+
+        /////////////////////////////////////////////////////////////////////////////////////
         ///Them moi mot mau tin
         public int Insert(Categories row)
         {
@@ -79,5 +95,12 @@ namespace MyClass.DAO
             return db.SaveChanges();
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////
+        ///Xoa mot mau tin Xoa ra khoi CSDL
+        public int Delete(Categories row)
+        {
+            db.Categories.Remove(row);
+            return db.SaveChanges();
+        }
     }
 }
