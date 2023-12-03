@@ -27,12 +27,7 @@ namespace _63CNTT4N1
                defaults: new { controller = "Site", action = "Post", id = UrlParameter.Optional }
            );
 
-            //Khai bao cho URL co dinh: lien-he
-            routes.MapRoute(
-               name: "Lienhe",
-               url: "lien-he",
-               defaults: new { controller = "Lienhe", action = "Index", id = UrlParameter.Optional }
-           );
+           
 
             //Khai bao cho URL co dinh: gio-hang
             routes.MapRoute(
@@ -73,7 +68,7 @@ namespace _63CNTT4N1
                url: "gioi-thieu",
                defaults: new { controller = "Site", action = "Gioithieu", id = UrlParameter.Optional }
            );
-
+           
             //khai bao cho URL dong
             routes.MapRoute(
               name: "Siteslug",

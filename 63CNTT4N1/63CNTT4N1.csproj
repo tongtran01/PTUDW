@@ -138,7 +138,6 @@
     <Compile Include="Areas\Admin\Controllers\SupplierController.cs" />
     <Compile Include="Areas\Admin\Controllers\TopicController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\KhachhangController.cs" />
     <Compile Include="Controllers\ModuleController.cs" />

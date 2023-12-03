@@ -65,7 +65,7 @@
                                         <td>@Html.DisplayFor(modelItem => item.Order)</td>
                                         <td>@Html.DisplayFor(modelItem => item.Id)</td>
                                         <td>
-                                            <a href="@Url.Action("Recover", "Menu", new { id = item.Id })" class="btn-sm btn-info"> <i class="fa fa-undo"></i></a>
+                                            <a href="@Url.Action("Undo", "Menu", new { id = item.Id })" class="btn-sm btn-info"> <i class="fa fa-undo"></i></a>
                                             <a href="@Url.Action("Delete", "Menu", new { id = item.Id })" class="btn-sm btn-danger"> <i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
